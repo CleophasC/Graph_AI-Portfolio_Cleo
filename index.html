@@ -3,894 +3,698 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dr. Cleophas Chimbetete | Generative AI Portfolio</title>
+    <title>Dr. Cleophas Chimbetete | GenAI Portfolio</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts for premium typography -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
-    
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: {
-                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-                        serif: ['"Playfair Display"', 'serif'],
-                    },
                     colors: {
                         brand: {
-                            deep: '#0F2C3D', // Deep Teal/Blue
-                            teal: '#1B4D63', // Medium Teal
-                            accent: '#EBB42C', // GRAPH Gold/Yellow
-                            light: '#F4F7F6', // Off-white
-                            coral: '#E06D53'
+                            teal: '#14b8a6', // teal-500
+                            darkTeal: '#0f766e', // teal-700
+                            lightTeal: '#ccfbf1', // teal-100
+                            gold: '#eab308', // yellow-500
+                            darkGold: '#a16207', // yellow-700
+                            darkest: '#0f172a', // slate-900
+                            darkBg: '#1e293b' // slate-800
                         }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
                     }
                 }
             }
         }
     </script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
     <style>
-        .gradient-bg {
-            background: linear-gradient(135deg, #0F2C3D 0%, #173E52 50%, #205973 100%);
+        body {
+            font-family: 'Inter', sans-serif;
         }
-        .accent-gradient-text {
-            background: linear-gradient(120deg, #EBB42C, #F4D35E);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .serif-title {
+            font-family: 'Playfair Display', serif;
         }
-        .teal-gradient-text {
-            background: linear-gradient(120deg, #1B4D63, #31829D);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
         }
-        .glass {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
         }
-        .glass-dark {
-            background: rgba(15, 44, 61, 0.85);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+        ::-webkit-scrollbar-thumb {
+            background: #14b8a6;
+            border-radius: 4px;
         }
-        .card-shadow {
-            box-shadow: 0 10px 30px -10px rgba(15, 44, 61, 0.08);
+        ::-webkit-scrollbar-thumb:hover {
+            background: #0f766e;
+        }
+        /* Gradient borders and glowing effects */
+        .glow-hover:hover {
+            box-shadow: 0 0 20px rgba(20, 184, 166, 0.4);
+            transform: translateY(-2px);
+            transition: all 0.3s ease;
         }
     </style>
 </head>
-<body class="bg-[#F8FAFC] text-slate-800 font-sans antialiased">
+<body class="bg-brand-darkest text-slate-100 min-h-screen selection:bg-brand-teal selection:text-brand-darkest overflow-x-hidden">
 
-    <!-- NAVIGATION BAR -->
-    <nav class="sticky top-0 z-50 glass border-b border-slate-200/50 transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20">
-                <div class="flex items-center space-x-3">
-                    <!-- Elegant Medical & AI Fusion Logo -->
-                    <div class="w-11 h-11 rounded-xl bg-brand-deep flex items-center justify-center text-white shadow-md relative overflow-hidden group">
-                        <div class="absolute inset-0 bg-gradient-to-tr from-brand-teal to-brand-accent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                        <svg class="w-6 h-6 z-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
-                        </svg>
-                    </div>
-                    <div>
-                        <span class="block text-lg font-bold text-brand-deep tracking-tight">Dr. Cleophas Chimbetete</span>
-                        <span class="block text-xs font-semibold tracking-widest text-brand-teal uppercase">GenAI for Public Health</span>
-                    </div>
-                </div>
-                
-                <!-- Desktop Navigation Links -->
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="#about-me" class="text-sm font-semibold text-slate-600 hover:text-brand-deep transition-colors">About Me</a>
-                    <a href="#course" class="text-sm font-semibold text-slate-600 hover:text-brand-deep transition-colors">The Course</a>
-                    <a href="#submissions" class="text-sm font-semibold text-slate-600 hover:text-brand-deep transition-colors">My Submissions</a>
-                    <a href="#research" class="text-sm font-semibold text-slate-600 hover:text-brand-deep transition-colors">Research Portfolio</a>
-                    <a href="#contact" class="px-5 py-2.5 rounded-xl bg-brand-deep hover:bg-brand-teal text-white text-sm font-bold transition-all duration-300 shadow-sm">Get In Touch</a>
-                </div>
-
-                <!-- Mobile Menu Button -->
-                <button id="mobile-menu-btn" class="md:hidden text-brand-deep focus:outline-none p-2 rounded-lg hover:bg-slate-100">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                </button>
+    <!-- Header / Navigation -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-brand-darkest/95 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <span class="text-2xl font-black bg-gradient-to-r from-brand-teal to-brand-gold bg-clip-text text-transparent">CC</span>
+                <span class="hidden sm:inline-block font-semibold tracking-wider text-slate-200">PORTFOLIO</span>
             </div>
-        </div>
-
-        <!-- Mobile Dropdown Menu -->
-        <div id="mobile-menu" class="hidden md:hidden border-t border-slate-200/80 bg-white/95 backdrop-blur-lg px-4 py-4 space-y-3 shadow-inner">
-            <a href="#about-me" class="block px-4 py-2 text-base font-semibold text-slate-700 hover:bg-slate-50 rounded-lg">About Me</a>
-            <a href="#course" class="block px-4 py-2 text-base font-semibold text-slate-700 hover:bg-slate-50 rounded-lg">The Course</a>
-            <a href="#submissions" class="block px-4 py-2 text-base font-semibold text-slate-700 hover:bg-slate-50 rounded-lg">My Submissions</a>
-            <a href="#research" class="block px-4 py-2 text-base font-semibold text-slate-700 hover:bg-slate-50 rounded-lg">Research Portfolio</a>
-            <a href="#contact" class="block text-center px-4 py-3 bg-brand-deep text-white font-bold rounded-xl shadow">Get In Touch</a>
-        </div>
-    </nav>
-
-    <!-- HERO SECTION -->
-    <header class="relative overflow-hidden gradient-bg text-white pt-12 pb-24 md:py-32">
-        <!-- Abstract network/grid background -->
-        <div class="absolute inset-0 opacity-[0.07] pointer-events-none">
-            <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-                        <path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" stroke-width="1"/>
-                    </pattern>
-                </defs>
-                <rect width="100%" height="100%" fill="url(#grid)" />
-            </svg>
+            
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#about-me" class="text-sm font-medium text-slate-300 hover:text-brand-teal transition-colors">About Me</a>
+                <a href="#about-course" class="text-sm font-medium text-slate-300 hover:text-brand-teal transition-colors">The AI Course</a>
+                <a href="#submissions" class="text-sm font-medium text-slate-300 hover:text-brand-teal transition-colors">My Submissions</a>
+                <a href="#cv-highlights" class="text-sm font-medium text-slate-300 hover:text-brand-teal transition-colors">Academic CV</a>
+                <a href="#contact" class="px-4 py-2 text-sm font-medium text-brand-darkest bg-gradient-to-r from-brand-teal to-brand-gold rounded-full hover:opacity-90 transition-opacity">Get in Touch</a>
+            </nav>
+            
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden p-2 text-slate-400 hover:text-white focus:outline-none">
+                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
         </div>
         
-        <!-- Glowing Ambient Lights -->
-        <div class="absolute -top-40 -left-40 w-96 h-96 rounded-full bg-brand-accent/20 filter blur-[100px]"></div>
-        <div class="absolute -bottom-40 -right-40 w-96 h-96 rounded-full bg-brand-teal/50 filter blur-[120px]"></div>
-
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-                <!-- Text Area -->
-                <div class="lg:col-span-7 text-center lg:text-left">
-                    <div class="inline-flex items-center space-x-2.5 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/20 text-brand-accent text-xs font-bold uppercase tracking-wider mb-6">
-                        <span class="flex h-2 w-2 relative">
-                          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-accent opacity-75"></span>
-                          <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-accent"></span>
-                        </span>
-                        <span>Bridging Global Health Research & Generative AI</span>
-                    </div>
-                    
-                    <h1 class="font-serif text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-[1.1] mb-6">
-                        Empowering Public Health with <span class="accent-gradient-text block mt-2">Responsible Task Automation</span>
-                    </h1>
-                    
-                    <p class="text-lg md:text-xl text-slate-200/95 font-light max-w-2xl leading-relaxed mb-10 mx-auto lg:mx-0">
-                        Welcome to my interactive portfolio. Here, I synthesize my 15+ years of clinical and global health research expertise with cutting-edge, no-code AI tools learned in my 8-week course journey.
-                    </p>
-                    
-                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
-                        <a href="#submissions" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-brand-accent hover:bg-yellow-500 text-brand-deep font-bold text-center transition-all duration-300 transform hover:-translate-y-0.5 shadow-lg shadow-brand-accent/25">
-                            View AI Portfolio
-                        </a>
-                        <a href="#about-me" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-white/10 hover:bg-white/15 text-white border border-white/20 font-bold text-center transition-all duration-300">
-                            About Dr. Chimbetete
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Interactive Visual Badge Container -->
-                <div class="lg:col-span-5 flex justify-center">
-                    <div class="relative w-full max-w-[380px] sm:max-w-[420px]">
-                        <!-- Decorative Frame -->
-                        <div class="absolute inset-0 bg-gradient-to-tr from-brand-accent to-brand-teal rounded-3xl rotate-3 scale-102 opacity-20 blur-lg"></div>
-                        
-                        <div class="relative glass-dark rounded-3xl p-8 border border-white/10 shadow-2xl">
-                            <!-- Header Info -->
-                            <div class="flex items-center space-x-4 mb-8">
-                                <div class="w-14 h-14 rounded-2xl bg-white/15 flex items-center justify-center border border-white/10">
-                                    <span class="font-serif text-2xl font-bold text-brand-accent">C</span>
-                                </div>
-                                <div>
-                                    <h3 class="text-lg font-bold">Dr. Cleophas Chimbetete</h3>
-                                    <p class="text-xs text-slate-300">PhD, Public & Global Health</p>
-                                </div>
-                            </div>
-
-                            <!-- Highlights -->
-                            <div class="space-y-4 mb-8">
-                                <div class="flex items-start space-x-3.5">
-                                    <span class="p-1 rounded-lg bg-emerald-500/20 text-emerald-400 mt-1">
-                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                    </span>
-                                    <div>
-                                        <p class="text-sm font-semibold text-slate-100">Training & Research Director</p>
-                                        <p class="text-xs text-slate-400">Ruedi Luethy Foundation, Newlands Clinic</p>
-                                    </div>
-                                </div>
-                                <div class="flex items-start space-x-3.5">
-                                    <span class="p-1 rounded-lg bg-indigo-500/20 text-indigo-400 mt-1">
-                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                    </span>
-                                    <div>
-                                        <p class="text-sm font-semibold text-slate-100">60+ Peer-Reviewed Publications</p>
-                                        <p class="text-xs text-slate-400">Collaborator, IeDEA & University of Bern</p>
-                                    </div>
-                                </div>
-                                <div class="flex items-start space-x-3.5">
-                                    <span class="p-1 rounded-lg bg-amber-500/20 text-brand-accent mt-1">
-                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                    </span>
-                                    <div>
-                                        <p class="text-sm font-semibold text-slate-100">GenAI Course Cohort</p>
-                                        <p class="text-xs text-slate-400">The GRAPH Courses (8-Week Program)</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Stat Pill Grid -->
-                            <div class="grid grid-cols-2 gap-3 pt-6 border-t border-white/10">
-                                <div class="bg-white/5 p-3 rounded-xl border border-white/5 text-center">
-                                    <span class="block text-xl font-extrabold text-brand-accent">8 Wks</span>
-                                    <span class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Course Duration</span>
-                                </div>
-                                <div class="bg-white/5 p-3 rounded-xl border border-white/5 text-center">
-                                    <span class="block text-xl font-extrabold text-brand-accent">7 Mod</span>
-                                    <span class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">AI Modules</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Wave Divider Bottom -->
-        <div class="absolute bottom-0 left-0 right-0 w-full overflow-hidden leading-none">
-            <svg class="relative block w-full h-[60px]" viewBox="0 0 1200 120" preserveAspectRatio="none">
-                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V0C26.9,8.75,57.05,18.3,90.35,27.35,160.77,46.52,243.66,68.78,321.39,56.44Z" fill="#F8FAFC"></path>
-            </svg>
+        <!-- Mobile Menu dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-brand-darkBg border-b border-slate-800 px-4 pt-2 pb-6 space-y-3">
+            <a href="#about-me" class="block text-base font-medium text-slate-300 hover:text-brand-teal" onclick="toggleMenu()">About Me</a>
+            <a href="#about-course" class="block text-base font-medium text-slate-300 hover:text-brand-teal" onclick="toggleMenu()">The AI Course</a>
+            <a href="#submissions" class="block text-base font-medium text-slate-300 hover:text-brand-teal" onclick="toggleMenu()">My Submissions</a>
+            <a href="#cv-highlights" class="block text-base font-medium text-slate-300 hover:text-brand-teal" onclick="toggleMenu()">Academic CV</a>
+            <a href="#contact" class="block text-center py-2 text-base font-medium text-brand-darkest bg-gradient-to-r from-brand-teal to-brand-gold rounded-full" onclick="toggleMenu()">Get in Touch</a>
         </div>
     </header>
 
-    <!-- SECTION 1: ABOUT ME -->
-    <section id="about-me" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
-            <!-- Left Info Cards: 15+ Yrs Bio -->
-            <div class="lg:col-span-7">
-                <span class="text-xs font-bold uppercase tracking-widest text-brand-teal block mb-2">About the Researcher</span>
-                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-deep mb-6">Dr. Cleophas Chimbetete</h2>
-                
-                <div class="prose prose-slate max-w-none text-slate-600 space-y-4 text-base leading-relaxed">
-                    <p class="font-medium text-lg text-slate-700">
-                        I am a medical doctor and public health specialist with over 15 years of dedicated experience in HIV clinical care, global health epidemiology, program management, and national capacity training in Zimbabwe.
-                    </p>
-                    <p>
-                        Currently serving as the <strong>Training & Research Director</strong> at the Ruedi Luethy Foundation (Newlands Clinic), I lead the implementation of our country's National Advanced HIV Training Programme. Additionally, I represent Zimbabwe in multi-centre cohort studies with international research bodies, including the University of Bern, Switzerland and the IeDEA collaboration.
-                    </p>
-                    <p class="border-l-4 border-brand-accent pl-4 italic text-brand-deep font-medium py-1">
-                        "The advent of Generative AI presents a monumental paradigm shift for scientific communication and public health delivery. My mission is to champion ethical, secure, and highly efficient AI integration within clinical trials, data management, and public health curricula."
-                    </p>
-                </div>
-
-                <!-- Core Pillars / Interests -->
-                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8">
-                    <div class="p-5 bg-white rounded-xl border border-slate-200/60 shadow-sm">
-                        <div class="w-10 h-10 rounded-lg bg-brand-deep/5 text-brand-deep flex items-center justify-center mb-4">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
-                        </div>
-                        <h4 class="font-bold text-slate-800 text-sm mb-1">Clinical Trials</h4>
-                        <p class="text-xs text-slate-500">Robust research and epidemiological study design.</p>
-                    </div>
-                    <div class="p-5 bg-white rounded-xl border border-slate-200/60 shadow-sm">
-                        <div class="w-10 h-10 rounded-lg bg-emerald-500/5 text-emerald-600 flex items-center justify-center mb-4">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
-                        </div>
-                        <h4 class="font-bold text-slate-800 text-sm mb-1">Health Policies</h4>
-                        <p class="text-xs text-slate-500">Formulating national guidelines for HIV/NCD.</p>
-                    </div>
-                    <div class="p-5 bg-white rounded-xl border border-slate-200/60 shadow-sm">
-                        <div class="w-10 h-10 rounded-lg bg-amber-500/5 text-amber-600 flex items-center justify-center mb-4">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-                        </div>
-                        <h4 class="font-bold text-slate-800 text-sm mb-1">AI Automation</h4>
-                        <p class="text-xs text-slate-500">Accelerating administrative tasks responsibly.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Right Timeline/Education -->
-            <div class="lg:col-span-5 bg-white rounded-3xl p-8 border border-slate-200/60 shadow-xl card-shadow relative">
-                <h3 class="font-serif text-2xl font-bold text-brand-deep mb-6">Expertise & Background</h3>
-                
-                <div class="space-y-6 relative before:absolute before:inset-y-0 before:left-[15px] before:w-0.5 before:bg-slate-100">
-                    <!-- Item 1 -->
-                    <div class="flex items-start space-x-4 relative">
-                        <div class="w-8 h-8 rounded-full bg-brand-deep flex items-center justify-center text-white text-xs font-bold z-10 shadow-sm">
-                            <span class="w-2 h-2 rounded-full bg-brand-accent"></span>
-                        </div>
-                        <div>
-                            <span class="text-xs font-bold text-brand-teal uppercase tracking-wider block">PhD, Public Health</span>
-                            <span class="text-sm font-semibold text-slate-800">Swiss School of Public Health</span>
-                            <span class="text-xs text-slate-400 block mt-0.5">Concluded 2022</span>
-                        </div>
-                    </div>
-                    <!-- Item 2 -->
-                    <div class="flex items-start space-x-4 relative">
-                        <div class="w-8 h-8 rounded-full bg-brand-deep flex items-center justify-center text-white text-xs font-bold z-10 shadow-sm">
-                            <span class="w-2 h-2 rounded-full bg-brand-accent"></span>
-                        </div>
-                        <div>
-                            <span class="text-xs font-bold text-brand-teal uppercase tracking-wider block">PhD, Global Health</span>
-                            <span class="text-sm font-semibold text-slate-800">University of Genève, Switzerland</span>
-                            <span class="text-xs text-slate-400 block mt-0.5">2015 - 2020</span>
-                        </div>
-                    </div>
-                    <!-- Item 3 -->
-                    <div class="flex items-start space-x-4 relative">
-                        <div class="w-8 h-8 rounded-full bg-brand-deep flex items-center justify-center text-white text-xs font-bold z-10 shadow-sm">
-                            <span class="w-2 h-2 rounded-full bg-brand-accent"></span>
-                        </div>
-                        <div>
-                            <span class="text-xs font-bold text-brand-teal uppercase tracking-wider block">Master of Public Health</span>
-                            <span class="text-sm font-semibold text-slate-800">University of Zimbabwe</span>
-                            <span class="text-xs text-slate-400 block mt-0.5">2011 (Awarded with Merit)</span>
-                        </div>
-                    </div>
-                    <!-- Item 4 -->
-                    <div class="flex items-start space-x-4 relative">
-                        <div class="w-8 h-8 rounded-full bg-brand-deep flex items-center justify-center text-white text-xs font-bold z-10 shadow-sm">
-                            <span class="w-2 h-2 rounded-full bg-brand-accent"></span>
-                        </div>
-                        <div>
-                            <span class="text-xs font-bold text-brand-teal uppercase tracking-wider block">MBChB Medical Degree</span>
-                            <span class="text-sm font-semibold text-slate-800">University of Zimbabwe</span>
-                            <span class="text-xs text-slate-400 block mt-0.5">1998</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="mt-8 pt-6 border-t border-slate-100 flex items-center justify-between">
-                    <div>
-                        <span class="block text-2xl font-bold text-brand-deep">60+</span>
-                        <span class="text-xs text-slate-500 font-medium">Research Publications</span>
-                    </div>
-                    <div class="text-right">
-                        <span class="block text-2xl font-bold text-brand-deep">15y+</span>
-                        <span class="text-xs text-slate-500 font-medium">Global Health Practice</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- BANNER: INTERMEDIARY ADVERTISING GRAPH COHORT -->
-    <section class="gradient-bg text-white py-16 relative overflow-hidden">
-        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-teal-800/20 via-transparent to-transparent pointer-events-none"></div>
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-24 md:pt-40 md:pb-36 overflow-hidden bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))] from-slate-800 via-brand-darkest to-brand-darkest">
+        <!-- Background absolute decorative shapes -->
+        <div class="absolute top-1/4 left-10 w-72 h-72 bg-brand-teal/10 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-10 right-10 w-96 h-96 bg-brand-gold/5 rounded-full blur-3xl"></div>
+        
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-            <h3 class="text-brand-accent font-bold uppercase text-xs tracking-widest mb-3">Live Cohort Course</h3>
-            <h2 class="font-serif text-3xl sm:text-4xl font-bold mb-4">Generative AI for Work & Research</h2>
-            <p class="text-slate-200 max-w-2xl mx-auto mb-8 text-sm sm:text-base font-light">
-                This rigorous program by <strong>The GRAPH Courses</strong> emphasizes No-Code AI tools to perform responsible, safe task automation, literature review acceleration, automated dashboard visualization, and text analysis pipeline creation.
+            <!-- Circular Avatar Container -->
+            <div class="relative w-40 h-40 md:w-48 md:h-48 mx-auto mb-8 rounded-full p-1.5 bg-gradient-to-tr from-brand-teal via-teal-300 to-brand-gold shadow-2xl">
+                <img 
+                    src="https://raw.githubusercontent.com/CleophasC/Graph_AI-Portfolio_Cleo/main/Photo_Cleophas%20Chimbetete.jpg" 
+                    alt="Dr. Cleophas Chimbetete" 
+                    id="avatar-img"
+                    class="w-full h-full object-cover rounded-full bg-slate-800"
+                    onerror="handleImageError(this)"
+                />
+            </div>
+
+            <p class="text-brand-teal text-sm md:text-base font-semibold tracking-widest uppercase mb-3">Public Health Specialist &amp; HIV Researcher</p>
+            <h1 class="serif-title text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
+                Dr. Cleophas Chimbetete
+            </h1>
+            
+            <p class="max-w-2xl mx-auto text-slate-300 text-base md:text-lg mb-8 leading-relaxed">
+                Integrating over 15 years of global clinical care, epidemiology, and public health leadership with modern, responsible <strong class="text-brand-teal">No-Code Generative AI</strong> workflows. Welcome to my research automation journal.
             </p>
-            <div class="flex flex-wrap items-center justify-center gap-6 text-xs sm:text-sm font-semibold text-slate-300">
-                <span class="flex items-center gap-2"><svg class="w-5 h-5 text-brand-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> Weekly Live Workshops</span>
-                <span class="flex items-center gap-2"><svg class="w-5 h-5 text-brand-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> Capstone Project Coaching</span>
-                <span class="flex items-center gap-2"><svg class="w-5 h-5 text-brand-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> Responsible Practice & Safety</span>
+
+            <!-- Quick Stats Row -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto mb-10">
+                <div class="p-4 rounded-2xl bg-brand-darkBg/50 border border-slate-800 backdrop-blur">
+                    <span class="block text-2xl md:text-3xl font-bold text-brand-teal">15+</span>
+                    <span class="text-xs text-slate-400 uppercase tracking-wider">Years Experience</span>
+                </div>
+                <div class="p-4 rounded-2xl bg-brand-darkBg/50 border border-slate-800 backdrop-blur">
+                    <span class="block text-2xl md:text-3xl font-bold text-brand-gold">60+</span>
+                    <span class="text-xs text-slate-400 uppercase tracking-wider">Publications</span>
+                </div>
+                <div class="p-4 rounded-2xl bg-brand-darkBg/50 border border-slate-800 backdrop-blur">
+                    <span class="block text-2xl md:text-3xl font-bold text-brand-teal">2</span>
+                    <span class="text-xs text-slate-400 uppercase tracking-wider">PhD Degrees</span>
+                </div>
+                <div class="p-4 rounded-2xl bg-brand-darkBg/50 border border-slate-800 backdrop-blur">
+                    <span class="block text-2xl md:text-3xl font-bold text-brand-gold">8 Wks</span>
+                    <span class="text-xs text-slate-400 uppercase tracking-wider">GenAI Mastery</span>
+                </div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+                <a href="#submissions" class="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-brand-teal to-teal-600 text-brand-darkest font-bold rounded-full shadow-lg hover:shadow-teal-500/20 glow-hover transition-all">
+                    Explore Weekly Submissions
+                </a>
+                <a href="https://www.researchgate.net/profile/Cleophas_Chimbetete2" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-8 py-4 bg-brand-darkBg hover:bg-slate-700 text-white font-semibold rounded-full border border-slate-700 transition-colors flex items-center justify-center gap-2">
+                    <svg class="w-5 h-5 text-brand-teal" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M19.586 1.172a3 3 0 0 0-4.242 0L1.172 15.344a3 3 0 0 0 0 4.242l3.242 3.242a3 3 0 0 0 4.242 0L22.828 8.656a3 3 0 0 0 0-4.242l-3.242-3.242zm-1.414 1.414 3.242 3.242a1 1 0 0 1 0 1.414l-4.414 4.414-4.656-4.656 4.414-4.414a1 1 0 0 1 1.414 0zm-7.242 5.828 4.656 4.656-8.828 8.828H2.1v-4.656l8.828-8.828z"/>
+                    </svg>
+                    ResearchGate Profile
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- SECTION 2: THE COURSE SYLLABUS -->
-    <section id="course" class="py-24 bg-slate-100">
+    <!-- About Me Section -->
+    <section id="about-me" class="py-20 bg-brand-darkBg/40 border-y border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <span class="text-xs font-bold uppercase tracking-widest text-brand-teal block mb-2">Curriculum Map</span>
-                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-deep">8-Week Interactive Modules</h2>
-                <p class="text-slate-600 mt-4">
-                    The structured roadmap followed during the course, targeting specific text and research manipulation disciplines.
-                </p>
-            </div>
-
-            <!-- Interative Modules Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Mod 1 -->
-                <div class="bg-white rounded-2xl p-6 border border-slate-200/50 hover:border-brand-teal/40 shadow-sm transition-all duration-300 hover:shadow-lg relative group">
-                    <span class="absolute top-6 right-6 text-3xl font-serif text-slate-100 font-extrabold select-none transition-colors group-hover:text-brand-accent/20">01</span>
-                    <div class="w-12 h-12 rounded-xl bg-brand-deep/5 text-brand-deep flex items-center justify-center mb-6">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
-                    </div>
-                    <h3 class="font-bold text-lg text-brand-deep mb-3">Websites, Docs & Presentations</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed mb-4">
-                        Understanding foundational LLM technology. Writing Markdown documents, scientific posters, and generating clean static HTML outputs with Gemini and ChatGPT.
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- Text Area -->
+                <div class="lg:col-span-7">
+                    <span class="text-brand-gold text-xs font-bold tracking-widest uppercase block mb-2">The Practitioner</span>
+                    <h2 class="serif-title text-3xl md:text-4xl font-bold text-white mb-6">About Dr. Cleo</h2>
+                    <p class="text-slate-300 leading-relaxed mb-6">
+                        I am a medical doctor and public health professional based in Harare, Zimbabwe, with a career dedicated to combating HIV and improving global health systems. Currently, I serve as the <strong>Training &amp; Research Director</strong> at the Ruedi Luethy Foundation, Newlands Clinic. In this capacity, I direct the National Advanced HIV Training Programme and spearhead vital cohort research.
                     </p>
-                    <div class="border-t border-slate-100 pt-3">
-                        <span class="text-xs font-bold text-slate-400 block mb-1.5 uppercase">Featured Tools:</span>
-                        <div class="flex flex-wrap gap-1.5">
-                            <span class="px-2 py-0.5 rounded-md bg-slate-100 text-[10px] font-semibold text-slate-600">Markdown</span>
-                            <span class="px-2 py-0.5 rounded-md bg-slate-100 text-[10px] font-semibold text-slate-600">HTML5</span>
-                            <span class="px-2 py-0.5 rounded-md bg-slate-100 text-[10px] font-semibold text-slate-600">LaTeX</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Mod 2 -->
-                <div class="bg-white rounded-2xl p-6 border border-slate-200/50 hover:border-brand-teal/40 shadow-sm transition-all duration-300 hover:shadow-lg relative group">
-                    <span class="absolute top-6 right-6 text-3xl font-serif text-slate-100 font-extrabold select-none transition-colors group-hover:text-brand-accent/20">02</span>
-                    <div class="w-12 h-12 rounded-xl bg-emerald-500/5 text-emerald-600 flex items-center justify-center mb-6">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
-                    </div>
-                    <h3 class="font-bold text-lg text-brand-deep mb-3">AI-Automated Data Analysis</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed mb-4">
-                        Analyzing clinical studies securely. Setting up automated data dashboards and generating data summaries with absolute mathematical validation and zero hallucination.
-                    </p>
-                    <div class="border-t border-slate-100 pt-3">
-                        <span class="text-xs font-bold text-slate-400 block mb-1.5 uppercase">Featured Tools:</span>
-                        <div class="flex flex-wrap gap-1.5">
-                            <span class="px-2 py-0.5 rounded-md bg-slate-100 text-[10px] font-semibold text-slate-600">Julius AI</span>
-                            <span class="px-2 py-0.5 rounded-md bg-slate-100 text-[10px] font-semibold text-slate-600">Code Interpreter</span>
-                            <span class="px-2 py-0.5 rounded-md bg-slate-100 text-[10px] font-semibold text-slate-600">TheBricks</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Mod 3 -->
-                <div class="bg-white rounded-2xl p-6 border border-slate-200/50 hover:border-brand-teal/40 shadow-sm transition-all duration-300 hover:shadow-lg relative group">
-                    <span class="absolute top-6 right-6 text-3xl font-serif text-slate-100 font-extrabold select-none transition-colors group-hover:text-brand-accent/20">03</span>
-                    <div class="w-12 h-12 rounded-xl bg-amber-500/5 text-amber-600 flex items-center justify-center mb-6">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.246.477 4 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.246.477-4 1.253"></path></svg>
-                    </div>
-                    <h3 class="font-bold text-lg text-brand-deep mb-3">GenAI for Research & Text Analysis</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed mb-4">
-                        Literature search pipelines and classification methods. Building automated summarizers and synthesis networks for handling massive document collections.
-                    </p>
-                    <div class="border-t border-slate-100 pt-3">
-                        <span class="text-xs font-bold text-slate-400 block mb-1.5 uppercase">Featured Tools:</span>
-                        <div class="flex flex-wrap gap-1.5">
-                            <span class="px-2 py-0.5 rounded-md bg-slate-100 text-[10px] font-semibold text-slate-600">Elicit</span>
-                            <span class="px-2 py-0.5 rounded-md bg-slate-100 text-[10px] font-semibold text-slate-600">LiteRev</span>
-                            <span class="px-2 py-0.5 rounded-md bg-slate-100 text-[10px] font-semibold text-slate-600">Text Classifiers</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Mod 4 -->
-                <div class="bg-white rounded-2xl p-6 border border-slate-200/50 hover:border-brand-teal/40 shadow-sm transition-all duration-300 hover:shadow-lg relative group">
-                    <span class="absolute top-6 right-6 text-3xl font-serif text-slate-100 font-extrabold select-none transition-colors group-hover:text-brand-accent/20">04</span>
-                    <div class="w-12 h-12 rounded-xl bg-indigo-500/5 text-indigo-600 flex items-center justify-center mb-6">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
-                    </div>
-                    <h3 class="font-bold text-lg text-brand-deep mb-3">Custom GPTs and Chatbots</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed mb-4">
-                        Designing RAG-based systems. Uploading proprietary health curricula and policies to secure, custom chatbots to support medical student onboarding and curriculum delivery.
-                    </p>
-                    <div class="border-t border-slate-100 pt-3">
-                        <span class="text-xs font-bold text-slate-400 block mb-1.5 uppercase">Featured Tools:</span>
-                        <div class="flex flex-wrap gap-1.5">
-                            <span class="px-2 py-0.5 rounded-md bg-slate-100 text-[10px] font-semibold text-slate-600">RAG Architectures</span>
-                            <span class="px-2 py-0.5 rounded-md bg-slate-100 text-[10px] font-semibold text-slate-600">Botpress</span>
-                            <span class="px-2 py-0.5 rounded-md bg-slate-100 text-[10px] font-semibold text-slate-600">Custom GPTs</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Mod 5 -->
-                <div class="bg-white rounded-2xl p-6 border border-slate-200/50 hover:border-brand-teal/40 shadow-sm transition-all duration-300 hover:shadow-lg relative group">
-                    <span class="absolute top-6 right-6 text-3xl font-serif text-slate-100 font-extrabold select-none transition-colors group-hover:text-brand-accent/20">05</span>
-                    <div class="w-12 h-12 rounded-xl bg-purple-500/5 text-purple-600 flex items-center justify-center mb-6">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
-                    </div>
-                    <h3 class="font-bold text-lg text-brand-deep mb-3">AI for Task Automation</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed mb-4">
-                        Building smart agents. Linking calendar APIs, automatically monitoring literature for specific public health thresholds, and configuring multi-app email triggers safely.
-                    </p>
-                    <div class="border-t border-slate-100 pt-3">
-                        <span class="text-xs font-bold text-slate-400 block mb-1.5 uppercase">Featured Tools:</span>
-                        <div class="flex flex-wrap gap-1.5">
-                            <span class="px-2 py-0.5 rounded-md bg-slate-100 text-[10px] font-semibold text-slate-600">Browser Agents</span>
-                            <span class="px-2 py-0.5 rounded-md bg-slate-100 text-[10px] font-semibold text-slate-600">Workflows</span>
-                            <span class="px-2 py-0.5 rounded-md bg-slate-100 text-[10px] font-semibold text-slate-600">Zapier / Make</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Mod 6 -->
-                <div class="bg-white rounded-2xl p-6 border border-slate-200/50 hover:border-brand-teal/40 shadow-sm transition-all duration-300 hover:shadow-lg relative group">
-                    <span class="absolute top-6 right-6 text-3xl font-serif text-slate-100 font-extrabold select-none transition-colors group-hover:text-brand-accent/20">06</span>
-                    <div class="w-12 h-12 rounded-xl bg-rose-500/5 text-rose-600 flex items-center justify-center mb-6">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"></path></svg>
-                    </div>
-                    <h3 class="font-bold text-lg text-brand-deep mb-3">GenAI for Communication</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed mb-4">
-                        Refining academic outreach. Building prompt structures to turn heavy scientific abstracts into accessible community newsletters, simple diagrams, or short explanatory video frameworks.
-                    </p>
-                    <div class="border-t border-slate-100 pt-3">
-                        <span class="text-xs font-bold text-slate-400 block mb-1.5 uppercase">Featured Tools:</span>
-                        <div class="flex flex-wrap gap-1.5">
-                            <span class="px-2 py-0.5 rounded-md bg-slate-100 text-[10px] font-semibold text-slate-600">Sci-Visualization</span>
-                            <span class="px-2 py-0.5 rounded-md bg-slate-100 text-[10px] font-semibold text-slate-600">Video Abstracts</span>
-                            <span class="px-2 py-0.5 rounded-md bg-slate-100 text-[10px] font-semibold text-slate-600">Prompts</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Mod 7 Hero Focus Box -->
-            <div class="mt-12 bg-gradient-to-tr from-brand-deep to-brand-teal text-white rounded-3xl p-8 shadow-xl relative overflow-hidden">
-                <div class="absolute -top-12 -right-12 w-48 h-48 rounded-full bg-brand-accent/10 blur-xl"></div>
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
-                    <div class="lg:col-span-8">
-                        <span class="text-xs font-bold text-brand-accent uppercase tracking-widest block mb-1">Module 07 — The Climax</span>
-                        <h3 class="font-serif text-2xl font-bold mb-3">Capstone Project & Live Academic Showcase</h3>
-                        <p class="text-slate-200 text-sm sm:text-base font-light leading-relaxed">
-                            Collaborating closely with course mentors and peer scientists, we build, debug, and present a practical AI utility that adheres to responsible safety and privacy bounds, culminating in a live public demonstration.
-                        </p>
-                    </div>
-                    <div class="lg:col-span-4 flex lg:justify-end">
-                        <div class="inline-flex items-center space-x-2.5 px-5 py-3 rounded-xl bg-white/10 border border-white/20 text-brand-accent font-bold text-sm">
-                            <span>Demonstrating Ethical Practice</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION 3: MY WEEKLY SUBMISSIONS -->
-    <section id="submissions" class="py-24">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <span class="text-xs font-bold uppercase tracking-widest text-brand-teal block mb-2">My Live Sandbox</span>
-                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-deep">Weekly Task & Research Submissions</h2>
-                <p class="text-slate-600 mt-4 text-sm sm:text-base">
-                    This portfolio dashboard will house active live-links to each respective week's automated project templates, RAG custom systems, and script pipelines as they are developed and verified.
-                </p>
-            </div>
-
-            <!-- Custom Designed Weekly Cards with specific Medical-to-AI contexts -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Card 1 -->
-                <div class="bg-white rounded-2xl p-6 border border-slate-200/60 shadow-sm relative flex flex-col justify-between hover:-translate-y-1 transition-all duration-300 hover:shadow-md">
-                    <div>
-                        <div class="flex items-center justify-between mb-4">
-                            <span class="text-xs font-bold text-slate-400">Week 01 Submission</span>
-                            <span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-amber-100 text-amber-800">Under Review</span>
-                        </div>
-                        <h3 class="font-bold text-base text-brand-deep mb-2">Interactive Research Portal Concept</h3>
-                        <p class="text-xs text-slate-500 leading-relaxed mb-4">
-                            A highly optimized HTML/Tailwind mockup prototype for the Zimbabwe Integrated HIV Training Curriculum resources repository.
-                        </p>
-                    </div>
-                    <div class="border-t border-slate-100 pt-4 mt-4 flex items-center justify-between">
-                        <span class="text-[10px] font-semibold text-slate-400">HTML5 • Tailwind</span>
-                        <span class="text-xs font-bold text-brand-teal flex items-center gap-1 opacity-60">
-                            Link coming soon 
-                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                        </span>
-                    </div>
-                </div>
-
-                <!-- Card 2 -->
-                <div class="bg-white rounded-2xl p-6 border border-slate-200/60 shadow-sm relative flex flex-col justify-between hover:-translate-y-1 transition-all duration-300 hover:shadow-md">
-                    <div>
-                        <div class="flex items-center justify-between mb-4">
-                            <span class="text-xs font-bold text-slate-400">Week 02 Submission</span>
-                            <span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-amber-100 text-amber-800">In Design</span>
-                        </div>
-                        <h3 class="font-bold text-base text-brand-deep mb-2">Clinical Study Dashboard Automation</h3>
-                        <p class="text-xs text-slate-500 leading-relaxed mb-4">
-                            A dashboard structure created using Julius and TheBricks, processing multi-cohort clinical trial statistics cleanly.
-                        </p>
-                    </div>
-                    <div class="border-t border-slate-100 pt-4 mt-4 flex items-center justify-between">
-                        <span class="text-[10px] font-semibold text-slate-400">Julius • Python Data</span>
-                        <span class="text-xs font-bold text-brand-teal flex items-center gap-1 opacity-60">
-                            Link coming soon 
-                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                        </span>
-                    </div>
-                </div>
-
-                <!-- Card 3 -->
-                <div class="bg-white rounded-2xl p-6 border border-slate-200/60 shadow-sm relative flex flex-col justify-between hover:-translate-y-1 transition-all duration-300 hover:shadow-md">
-                    <div>
-                        <div class="flex items-center justify-between mb-4">
-                            <span class="text-xs font-bold text-slate-400">Week 03 Submission</span>
-                            <span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-slate-100 text-slate-600">Pending Module</span>
-                        </div>
-                        <h3 class="font-bold text-base text-brand-deep mb-2">Literature Synthesis on HIV & Ageing</h3>
-                        <p class="text-xs text-slate-500 leading-relaxed mb-4">
-                            Automated lit search using Elicit integration to isolate trends regarding geriatric care in regional primary healthcare clinics.
-                        </p>
-                    </div>
-                    <div class="border-t border-slate-100 pt-4 mt-4 flex items-center justify-between">
-                        <span class="text-[10px] font-semibold text-slate-400">Elicit API • LiteRev</span>
-                        <span class="text-xs font-bold text-brand-teal flex items-center gap-1 opacity-60">
-                            Link coming soon 
-                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                        </span>
-                    </div>
-                </div>
-
-                <!-- Card 4 -->
-                <div class="bg-white rounded-2xl p-6 border border-slate-200/60 shadow-sm relative flex flex-col justify-between hover:-translate-y-1 transition-all duration-300 hover:shadow-md">
-                    <div>
-                        <div class="flex items-center justify-between mb-4">
-                            <span class="text-xs font-bold text-slate-400">Week 04 Submission</span>
-                            <span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-slate-100 text-slate-600">Pending Module</span>
-                        </div>
-                        <h3 class="font-bold text-base text-brand-deep mb-2">RAG Treatment Guidelines Assistant</h3>
-                        <p class="text-xs text-slate-500 leading-relaxed mb-4">
-                            A secure, context-locked chatbot system programmed exclusively with public national HIV clinical trial standards.
-                        </p>
-                    </div>
-                    <div class="border-t border-slate-100 pt-4 mt-4 flex items-center justify-between">
-                        <span class="text-[10px] font-semibold text-slate-400">Custom GPT • Botpress</span>
-                        <span class="text-xs font-bold text-brand-teal flex items-center gap-1 opacity-60">
-                            Link coming soon 
-                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                        </span>
-                    </div>
-                </div>
-
-                <!-- Card 5 -->
-                <div class="bg-white rounded-2xl p-6 border border-slate-200/60 shadow-sm relative flex flex-col justify-between hover:-translate-y-1 transition-all duration-300 hover:shadow-md">
-                    <div>
-                        <div class="flex items-center justify-between mb-4">
-                            <span class="text-xs font-bold text-slate-400">Week 05 Submission</span>
-                            <span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-slate-100 text-slate-600">Pending Module</span>
-                        </div>
-                        <h3 class="font-bold text-base text-brand-deep mb-2">Epidemic Literature Monitor Agent</h3>
-                        <p class="text-xs text-slate-500 leading-relaxed mb-4">
-                            An automated search agent monitoring global databases for newly published medical papers referencing epidemic outbreaks in sub-Saharan regions.
-                        </p>
-                    </div>
-                    <div class="border-t border-slate-100 pt-4 mt-4 flex items-center justify-between">
-                        <span class="text-[10px] font-semibold text-slate-400">Workflows • API Agents</span>
-                        <span class="text-xs font-bold text-brand-teal flex items-center gap-1 opacity-60">
-                            Link coming soon 
-                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                        </span>
-                    </div>
-                </div>
-
-                <!-- Card 6 -->
-                <div class="bg-white rounded-2xl p-6 border border-slate-200/60 shadow-sm relative flex flex-col justify-between hover:-translate-y-1 transition-all duration-300 hover:shadow-md">
-                    <div>
-                        <div class="flex items-center justify-between mb-4">
-                            <span class="text-xs font-bold text-slate-400">Week 06 Submission</span>
-                            <span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-slate-100 text-slate-600">Pending Module</span>
-                        </div>
-                        <h3 class="font-bold text-base text-brand-deep mb-2">Scientific Outreach Content Kit</h3>
-                        <p class="text-xs text-slate-500 leading-relaxed mb-4">
-                            Prompt pipelines turning dense publications into simple infographics and patient education packets automatically.
-                        </p>
-                    </div>
-                    <div class="border-t border-slate-100 pt-4 mt-4 flex items-center justify-between">
-                        <span class="text-[10px] font-semibold text-slate-400">Prompting • Sci-Visuals</span>
-                        <span class="text-xs font-bold text-brand-teal flex items-center gap-1 opacity-60">
-                            Link coming soon 
-                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                        </span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION 4: RESEARCH PORTFOLIO -->
-    <section id="research" class="py-24 bg-brand-light relative overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <span class="text-xs font-bold uppercase tracking-widest text-brand-teal block mb-2">Global Health Focus</span>
-                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-deep">Clinical Research & Publications</h2>
-                <p class="text-slate-600 mt-4 text-sm sm:text-base">
-                    Selected key institutional assignments, leadership positions, and clinical contributions to international public health and infectious disease research.
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-                <!-- Research Credentials -->
-                <div class="lg:col-span-8 space-y-6">
-                    <!-- Assignment Card 1 -->
-                    <div class="bg-white p-6 rounded-2xl border border-slate-200/50 shadow-sm flex items-start space-x-4">
-                        <div class="w-10 h-10 rounded-xl bg-brand-deep/5 text-brand-teal flex items-center justify-center shrink-0">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.246.477 4 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.246.477-4 1.253"></path></svg>
-                        </div>
-                        <div>
-                            <span class="text-[10px] font-bold uppercase tracking-wider text-brand-teal block mb-1">National Impact • Content Expert</span>
-                            <h4 class="font-bold text-brand-deep text-base mb-1">Revision of the Zimbabwe Integrated HIV Training Curriculum</h4>
-                            <p class="text-xs text-slate-500 leading-relaxed">
-                                Commissioned as Content Expert (2023) to review and implement modernized national training standards for clinicians country-wide.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Assignment Card 2 -->
-                    <div class="bg-white p-6 rounded-2xl border border-slate-200/50 shadow-sm flex items-start space-x-4">
-                        <div class="w-10 h-10 rounded-xl bg-brand-deep/5 text-brand-teal flex items-center justify-center shrink-0">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
-                        </div>
-                        <div>
-                            <span class="text-[10px] font-bold uppercase tracking-wider text-brand-teal block mb-1">International Assessment • UNAIDS</span>
-                            <h4 class="font-bold text-brand-deep text-base mb-1">UNAIDS Capacity Assessment of the Liu Lathu Programme (Malawi)</h4>
-                            <p class="text-xs text-slate-500 leading-relaxed">
-                                Directed full capacity frameworks evaluating regional program integration, training metrics, and local infrastructure sustainability metrics.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Assignment Card 3 -->
-                    <div class="bg-white p-6 rounded-2xl border border-slate-200/50 shadow-sm flex items-start space-x-4">
-                        <div class="w-10 h-10 rounded-xl bg-brand-deep/5 text-brand-teal flex items-center justify-center shrink-0">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
-                        </div>
-                        <div>
-                            <span class="text-[10px] font-bold uppercase tracking-wider text-brand-teal block mb-1">Ageing Population Study • PAPWC-Zim</span>
-                            <h4 class="font-bold text-brand-deep text-base mb-1">Assessing Needs of Ageing Women Living with HIV in Zimbabwe</h4>
-                            <p class="text-xs text-slate-500 leading-relaxed">
-                                Formulating quantitative and qualitative analytical structures assessing the intersection of non-communicable diseases (NCDs) with long-term viral therapy.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Strategic Affiliations & External Profiles -->
-                <div class="lg:col-span-4 bg-brand-deep text-white p-8 rounded-3xl shadow-lg relative overflow-hidden">
-                    <div class="absolute -bottom-10 -left-10 w-36 h-36 rounded-full bg-brand-accent/10 blur-xl"></div>
-                    <div class="relative z-10">
-                        <h4 class="font-serif text-xl font-bold mb-6">Professional Leadership</h4>
-                        
-                        <div class="space-y-4 mb-8 text-xs sm:text-sm">
-                            <div class="flex items-center space-x-3">
-                                <span class="w-1.5 h-1.5 rounded-full bg-brand-accent"></span>
-                                <span class="text-slate-200">Past President — Zimbabwe College of Public Health Physicians</span>
-                            </div>
-                            <div class="flex items-center space-x-3">
-                                <span class="w-1.5 h-1.5 rounded-full bg-brand-accent"></span>
-                                <span class="text-slate-200">Vice Chairman — Midlands State University Council</span>
-                            </div>
-                            <div class="flex items-center space-x-3">
-                                <span class="w-1.5 h-1.5 rounded-full bg-brand-accent"></span>
-                                <span class="text-slate-200">Board Chairman — Zvandiri (Local Youth NGO)</span>
-                            </div>
-                            <div class="flex items-center space-x-3">
-                                <span class="w-1.5 h-1.5 rounded-full bg-brand-accent"></span>
-                                <span class="text-slate-200">Past President — Zimbabwe HIV Clinicians’ Society</span>
-                            </div>
-                            <div class="flex items-center space-x-3">
-                                <span class="w-1.5 h-1.5 rounded-full bg-brand-accent"></span>
-                                <span class="text-slate-200">Member — Viiv Healthcare HIV & Ageing Africa Board</span>
-                            </div>
-                        </div>
-
-                        <!-- External Links -->
-                        <div class="pt-6 border-t border-white/10 text-center">
-                            <span class="text-xs text-slate-400 block mb-4 font-semibold uppercase tracking-wider">Explore Scholarly Profile</span>
-                            <a href="https://www.researchgate.net/profile/Cleophas_Chimbetete2" target="_blank" rel="noopener noreferrer" class="inline-flex items-center space-x-2 bg-white text-brand-deep px-6 py-3 rounded-xl font-bold text-xs hover:bg-brand-accent transition-colors duration-300 shadow-md">
-                                <svg class="w-4 h-4 text-brand-deep" fill="currentColor" viewBox="0 0 24 24"><path d="M19.53 19.8c-1.12 0-2.03-.91-2.03-2.03s.91-2.03 2.03-2.03 2.03.91 2.03 2.03-.91 2.03-2.03 2.03M11.5 6H9.5V4h2v2m1.94 1.94c-.45-.45-1.07-.69-1.94-.69H9.5v5h2c.87 0 1.49-.24 1.94-.69.45-.45.69-1.07.69-1.94s-.24-1.49-.69-1.94M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m3.52 14.3c-.65.65-1.55 1-2.77 1H9.5V19h-2V5h5.25c1.22 0 2.12.35 2.77 1 .65.65 1 1.55 1 2.77v1.76c0 1.22-.35 2.12-1 2.77m1.23-3.8c-.45-.45-1.07-.69-1.94-.69H12.5v3h2.31c.87 0 1.49-.24 1.94-.69.45-.45.69-1.07.69-1.94s-.24-1.49-.69-1.94z"/></svg>
-                                <span>View on ResearchGate</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION 5: CONTACT & STAKEHOLDER ENGAGEMENT -->
-    <section id="contact" class="py-24 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="bg-white rounded-3xl border border-slate-200/60 shadow-xl card-shadow overflow-hidden grid grid-cols-1 md:grid-cols-12">
-            <!-- Left Info Panel -->
-            <div class="md:col-span-5 gradient-bg text-white p-8 sm:p-12 relative flex flex-col justify-between">
-                <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-teal-800/30 via-transparent to-transparent pointer-events-none"></div>
-                <div class="relative z-10">
-                    <span class="text-xs font-bold uppercase tracking-widest text-brand-accent block mb-2">Connect</span>
-                    <h3 class="font-serif text-3xl font-bold mb-6">Let's Collaborate</h3>
-                    <p class="text-slate-200 text-sm font-light leading-relaxed mb-8">
-                        I am highly interested in partnering on scientific dissemination, innovative public health tools, local medical capacity building, and applied AI automation frameworks.
+                    <p class="text-slate-300 leading-relaxed mb-6">
+                        Throughout my journey, I've understood that scientific progress is deeply intertwined with data efficiency and transparent communication. This realization inspired me to join <strong>The GRAPH Courses' Generative AI Bootcamp</strong>. My objective is to master responsible, no-code AI automation to streamline research pipelines, synthesize critical clinical knowledge faster, and advocate for ethical AI implementation in global health settings.
                     </p>
                     
-                    <div class="space-y-4 text-xs sm:text-sm">
-                        <div class="flex items-center space-x-3.5">
-                            <span class="text-brand-accent">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                            </span>
-                            <span class="text-slate-100">Harare, Zimbabwe</span>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8">
+                        <div class="flex items-start space-x-3">
+                            <div class="p-2 bg-brand-teal/10 rounded-lg text-brand-teal mt-1">
+                                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-white">HIV Clinical Training</h4>
+                                <p class="text-xs text-slate-400">Leading advanced national educational frameworks.</p>
+                            </div>
                         </div>
-                        <div class="flex items-center space-x-3.5">
-                            <span class="text-brand-accent">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
-                            </span>
-                            <span class="text-slate-100">+263 772 572 877</span>
+                        <div class="flex items-start space-x-3">
+                            <div class="p-2 bg-brand-teal/10 rounded-lg text-brand-teal mt-1">
+                                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-white">Cohort Studies &amp; Research</h4>
+                                <p class="text-xs text-slate-400">Managing complex multi-center studies with the IeDEA network.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="mt-12 pt-6 border-t border-white/10 text-xs text-slate-300">
-                    Portfolio site built responsibly utilizing no-code techniques.
+                <!-- Interactive Sidebar Info / Timeline -->
+                <div class="lg:col-span-5 bg-brand-darkest p-6 sm:p-8 rounded-3xl border border-slate-800 shadow-xl relative">
+                    <div class="absolute top-0 right-0 transform translate-x-3 -translate-y-3 px-4 py-1.5 bg-brand-gold text-brand-darkest font-bold text-xs uppercase rounded-full tracking-wider">
+                        Quick Bio
+                    </div>
+                    <h3 class="font-bold text-xl text-white mb-6">Expertise Highlights</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="relative pl-6 border-l-2 border-brand-teal">
+                            <div class="absolute w-3 h-3 bg-brand-teal rounded-full -left-[7px] top-1.5"></div>
+                            <span class="text-xs font-semibold text-brand-teal uppercase tracking-widest">Swiss School of Public Health</span>
+                            <h4 class="font-bold text-white text-sm">PhD in Public Health (2022)</h4>
+                            <p class="text-xs text-slate-400 mt-1">In-depth epidemiological inquiry and system assessments.</p>
+                        </div>
+
+                        <div class="relative pl-6 border-l-2 border-brand-teal">
+                            <div class="absolute w-3 h-3 bg-brand-teal rounded-full -left-[7px] top-1.5"></div>
+                            <span class="text-xs font-semibold text-brand-teal uppercase tracking-widest">University of Genève</span>
+                            <h4 class="font-bold text-white text-sm">PhD in Global Health (2020)</h4>
+                            <p class="text-xs text-slate-400 mt-1">Focused on healthcare structures and disease prevention paradigms.</p>
+                        </div>
+
+                        <div class="relative pl-6 border-l-2 border-slate-800">
+                            <div class="absolute w-3 h-3 bg-slate-700 rounded-full -left-[7px] top-1.5"></div>
+                            <span class="text-xs font-semibold text-brand-gold uppercase tracking-widest">Ruedi Luethy Foundation</span>
+                            <h4 class="font-bold text-white text-sm">Training &amp; Research Director</h4>
+                            <p class="text-xs text-slate-400 mt-1">Supervising medical operations, curriculum transformations, and research grants.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-
-            <!-- Right Contact Form Panel -->
-            <form onsubmit="handleFormSubmit(event)" class="md:col-span-7 p-8 sm:p-12 space-y-6">
-                <div>
-                    <h4 class="font-serif text-xl font-bold text-brand-deep mb-2">Send a Message</h4>
-                    <p class="text-xs text-slate-500">Have a proposal, query, or academic request? Leave a secure message below.</p>
-                </div>
-                
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                        <label class="block text-xs font-bold text-slate-600 uppercase mb-1.5" for="name">Full Name</label>
-                        <input class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-brand-teal focus:border-transparent transition-all" type="text" id="name" required placeholder="Dr. Jane Doe">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-bold text-slate-600 uppercase mb-1.5" for="org">Organization</label>
-                        <input class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-brand-teal focus:border-transparent transition-all" type="text" id="org" placeholder="University / Clinic">
-                    </div>
-                </div>
-
-                <div>
-                    <label class="block text-xs font-bold text-slate-600 uppercase mb-1.5" for="subject">Subject</label>
-                    <input class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-brand-teal focus:border-transparent transition-all" type="text" id="subject" required placeholder="Academic Collaboration / AI Pilot">
-                </div>
-
-                <div>
-                    <label class="block text-xs font-bold text-slate-600 uppercase mb-1.5" for="message">Your Message</label>
-                    <textarea class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-brand-teal focus:border-transparent transition-all" id="message" rows="4" required placeholder="How can we partner?"></textarea>
-                </div>
-
-                <button type="submit" class="w-full py-4 px-6 bg-brand-deep hover:bg-brand-teal text-white font-bold text-sm rounded-xl transition-colors duration-300 shadow-lg shadow-brand-deep/15 flex items-center justify-center space-x-2">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
-                    <span>Send Message Securely</span>
-                </button>
-                
-                <!-- Custom status alert element inside form instead of simple alert() -->
-                <div id="form-status" class="hidden p-4 rounded-xl text-xs font-bold text-center transition-all duration-300"></div>
-            </form>
         </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer class="bg-brand-deep text-slate-400 py-12 border-t border-slate-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6 text-xs">
-            <div>
-                <p class="text-slate-200 font-semibold mb-1">Dr. Cleophas Chimbetete</p>
-                <p>&copy; 2026. All rights reserved.</p>
+    <!-- About the Course Section -->
+    <section id="about-course" class="py-20 bg-brand-darkest relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-teal text-xs font-bold tracking-widest uppercase block mb-2">GRAPH Courses Framework</span>
+                <h2 class="serif-title text-3xl md:text-4xl font-bold text-white mb-4">Generative AI for Work &amp; Research</h2>
+                <p class="text-slate-400">
+                    An intensive 8-week cohort experience teaching no-code AI tools, agents, literature automation, database pipelines, and responsible prompt engineering.
+                </p>
             </div>
-            <div class="flex space-x-6">
-                <a href="#about-me" class="hover:text-white transition-colors">About Me</a>
-                <a href="#course" class="hover:text-white transition-colors">The Course</a>
-                <a href="#submissions" class="hover:text-white transition-colors">Weekly Works</a>
-                <a href="https://www.researchgate.net/profile/Cleophas_Chimbetete2" target="_blank" rel="noopener" class="hover:text-white transition-colors">ResearchGate</a>
+
+            <!-- Program Features Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="p-8 rounded-3xl bg-brand-darkBg/30 border border-slate-800 hover:border-slate-700 transition-all">
+                    <div class="w-12 h-12 rounded-2xl bg-brand-teal/10 flex items-center justify-center text-brand-teal mb-6">
+                        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">No-Code AI Automation</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">
+                        Replacing legacy, manual routines with intelligent agents. Implementing workflow integrations (Replit, Botpress, TheBricks, Julius) without the need for custom coding.
+                    </p>
+                </div>
+
+                <div class="p-8 rounded-3xl bg-brand-darkBg/30 border border-slate-800 hover:border-slate-700 transition-all">
+                    <div class="w-12 h-12 rounded-2xl bg-brand-gold/10 flex items-center justify-center text-brand-gold mb-6">
+                        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Literature Synthesis</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">
+                        Mastering tools like Elicit and LiteRev to perform rapid, objective literature searches, mapping networks of medical discoveries, and parsing heavy cohorts with ease.
+                    </p>
+                </div>
+
+                <div class="p-8 rounded-3xl bg-brand-darkBg/30 border border-slate-800 hover:border-slate-700 transition-all">
+                    <div class="w-12 h-12 rounded-2xl bg-brand-teal/10 flex items-center justify-center text-brand-teal mb-6">
+                        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.952 11.952 0 01-6.818 1.951V13.6c0 5.307 3.538 9.92 8.51 11.5a11.951 11.951 0 008.51-11.5V5.984z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Responsible AI Ethics</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">
+                        Ensuring rigorous fact-checking, preventing algorithmic hallucination in public health reporting, and guarding medical patient records against structural leakage.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Submissions / Portfolio Section -->
+    <section id="submissions" class="py-20 bg-brand-darkBg/20 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                <div>
+                    <span class="text-brand-gold text-xs font-bold tracking-widest uppercase block mb-2">My Weekly Submissions</span>
+                    <h2 class="serif-title text-3xl md:text-4xl font-bold text-white">GenAI Portfolio &amp; Journey</h2>
+                </div>
+                <!-- Filter buttons -->
+                <div class="flex gap-2 mt-6 md:mt-0 overflow-x-auto pb-2">
+                    <button onclick="filterSubmissions('all')" id="filter-all" class="px-4 py-2 text-xs font-semibold rounded-full bg-brand-teal text-brand-darkest transition-all">All Projects</button>
+                    <button onclick="filterSubmissions('completed')" id="filter-completed" class="px-4 py-2 text-xs font-semibold rounded-full bg-brand-darkBg border border-slate-800 text-slate-300 hover:text-white transition-all">Completed</button>
+                    <button onclick="filterSubmissions('upcoming')" id="filter-upcoming" class="px-4 py-2 text-xs font-semibold rounded-full bg-brand-darkBg border border-slate-800 text-slate-300 hover:text-white transition-all">Upcoming</button>
+                </div>
+            </div>
+
+            <!-- Submissions Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-container">
+                
+                <!-- Module 1 -->
+                <div class="project-card completed bg-brand-darkBg/60 border border-brand-teal/30 hover:border-brand-teal rounded-3xl p-6 transition-all duration-300 relative group flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-6">
+                            <span class="px-3 py-1 text-[10px] font-bold tracking-widest uppercase bg-brand-teal/20 text-brand-teal rounded-full">Module 1</span>
+                            <span class="flex items-center gap-1.5 text-xs text-brand-teal font-semibold">
+                                <span class="w-2 h-2 rounded-full bg-brand-teal animate-pulse"></span> Completed
+                            </span>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2 group-hover:text-brand-teal transition-colors">Course Portfolio &amp; Profiles</h3>
+                        <p class="text-xs text-slate-400 mb-4">Websites, Documents &amp; Presentations</p>
+                        <p class="text-sm text-slate-300 leading-relaxed mb-6">
+                            Designing and formatting a clean, responsive academic showcase website using raw Markdown/HTML. Hosts my background, goals, and serves as an anchor for all future projects.
+                        </p>
+                    </div>
+                    <div>
+                        <hr class="border-slate-800 mb-4" />
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs text-brand-teal font-medium">This Website (V1.0)</span>
+                            <span class="text-xs text-slate-500 font-mono">May 2026</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Module 2 -->
+                <div class="project-card upcoming bg-brand-darkBg/40 border border-slate-800 hover:border-slate-700 rounded-3xl p-6 transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-6">
+                            <span class="px-3 py-1 text-[10px] font-bold tracking-widest uppercase bg-slate-800 text-slate-400 rounded-full">Module 2</span>
+                            <span class="text-xs text-brand-gold font-semibold flex items-center gap-1.5">
+                                <span class="w-2 h-2 rounded-full bg-brand-gold"></span> Coming Soon
+                            </span>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-200 mb-2">Automated Research Dashboard</h3>
+                        <p class="text-xs text-slate-400 mb-4">AI-Automated Data Analysis</p>
+                        <p class="text-sm text-slate-400 leading-relaxed mb-6">
+                            Applying ChatGPT Code Interpreter &amp; Julius to analyze health databases. Will output automated epidemiological dashboards showing non-communicable illness distributions in aging cohorts.
+                        </p>
+                    </div>
+                    <div>
+                        <hr class="border-slate-800 mb-4" />
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs text-slate-500">Awaiting Submissions</span>
+                            <span class="text-xs text-slate-500 font-mono">Future</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Module 3 -->
+                <div class="project-card upcoming bg-brand-darkBg/40 border border-slate-800 hover:border-slate-700 rounded-3xl p-6 transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-6">
+                            <span class="px-3 py-1 text-[10px] font-bold tracking-widest uppercase bg-slate-800 text-slate-400 rounded-full">Module 3</span>
+                            <span class="text-xs text-brand-gold font-semibold flex items-center gap-1.5">
+                                <span class="w-2 h-2 rounded-full bg-brand-gold"></span> Coming Soon
+                            </span>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-200 mb-2">Literature Synthesizer</h3>
+                        <p class="text-xs text-slate-400 mb-4">GenAI for Research &amp; Text Analysis</p>
+                        <p class="text-sm text-slate-400 leading-relaxed mb-6">
+                            Constructing a synthesis mapping model using Elicit &amp; LiteRev. Automates extraction of therapeutic findings from multi-author trials concerning antiretroviral updates.
+                        </p>
+                    </div>
+                    <div>
+                        <hr class="border-slate-800 mb-4" />
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs text-slate-500">Awaiting Submissions</span>
+                            <span class="text-xs text-slate-500 font-mono">Future</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Module 4 -->
+                <div class="project-card upcoming bg-brand-darkBg/40 border border-slate-800 hover:border-slate-700 rounded-3xl p-6 transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-6">
+                            <span class="px-3 py-1 text-[10px] font-bold tracking-widest uppercase bg-slate-800 text-slate-400 rounded-full">Module 4</span>
+                            <span class="text-xs text-brand-gold font-semibold flex items-center gap-1.5">
+                                <span class="w-2 h-2 rounded-full bg-brand-gold"></span> Coming Soon
+                            </span>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-200 mb-2">Interactive Cohort Chatbot</h3>
+                        <p class="text-xs text-slate-400 mb-4">Custom GPTs and Chatbots</p>
+                        <p class="text-sm text-slate-400 leading-relaxed mb-6">
+                            Developing a Custom GPT and Botpress workflow acting as a clinical advisor, trained responsibly on national advanced HIV therapeutic guidelines.
+                        </p>
+                    </div>
+                    <div>
+                        <hr class="border-slate-800 mb-4" />
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs text-slate-500">Awaiting Submissions</span>
+                            <span class="text-xs text-slate-500 font-mono">Future</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Module 5 -->
+                <div class="project-card upcoming bg-brand-darkBg/40 border border-slate-800 hover:border-slate-700 rounded-3xl p-6 transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-6">
+                            <span class="px-3 py-1 text-[10px] font-bold tracking-widest uppercase bg-slate-800 text-slate-400 rounded-full">Module 5</span>
+                            <span class="text-xs text-brand-gold font-semibold flex items-center gap-1.5">
+                                <span class="w-2 h-2 rounded-full bg-brand-gold"></span> Coming Soon
+                            </span>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-200 mb-2">PubMed Monitor Agent</h3>
+                        <p class="text-xs text-slate-400 mb-4">AI for Task Automation</p>
+                        <p class="text-sm text-slate-400 leading-relaxed mb-6">
+                            Configuring automated browser control agents and API structures. Monitors PubMed alerts for high-impact trials in Sub-Saharan Africa and logs them into structured reports.
+                        </p>
+                    </div>
+                    <div>
+                        <hr class="border-slate-800 mb-4" />
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs text-slate-500">Awaiting Submissions</span>
+                            <span class="text-xs text-slate-500 font-mono">Future</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Module 6 & 7 Capstone -->
+                <div class="project-card upcoming bg-brand-darkBg/40 border border-slate-800 hover:border-slate-700 rounded-3xl p-6 transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-6">
+                            <span class="px-3 py-1 text-[10px] font-bold tracking-widest uppercase bg-slate-800 text-slate-400 rounded-full">Module 6 &amp; 7</span>
+                            <span class="text-xs text-brand-gold font-semibold flex items-center gap-1.5">
+                                <span class="w-2 h-2 rounded-full bg-brand-gold"></span> Coming Soon
+                            </span>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-200 mb-2">Outreach Video &amp; Capstone</h3>
+                        <p class="text-xs text-slate-400 mb-4">Communication &amp; Capstone Project</p>
+                        <p class="text-sm text-slate-400 leading-relaxed mb-6">
+                            Constructing AI-generated scientific abstracts, diagrammatic visualizations, and video explanations of medical projects, presented to public research bodies.
+                        </p>
+                    </div>
+                    <div>
+                        <hr class="border-slate-800 mb-4" />
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs text-slate-500">Awaiting Submissions</span>
+                            <span class="text-xs text-slate-500 font-mono">Future</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Professional CV Highlights Section -->
+    <section id="cv-highlights" class="py-20 bg-brand-darkest border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-gold text-xs font-bold tracking-widest uppercase block mb-2">Research Credentials</span>
+                <h2 class="serif-title text-3xl md:text-4xl font-bold text-white mb-4">Professional Record &amp; Leadership</h2>
+                <p class="text-slate-400">Highlights from Dr. Cleophas Chimbetete's 15+ year record in implementation science and program design.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Academic and Work Appointments -->
+                <div class="space-y-8">
+                    <h3 class="text-xl font-bold text-white flex items-center gap-3">
+                        <svg class="w-6 h-6 text-brand-teal" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                        Professional Leadership
+                    </h3>
+
+                    <div class="space-y-6">
+                        <div class="p-6 rounded-2xl bg-brand-darkBg/30 border border-slate-800">
+                            <span class="text-xs font-semibold text-brand-gold block mb-1">Ruedi Luethy Foundation (2018 - Present)</span>
+                            <h4 class="font-bold text-white mb-2">Training &amp; Research Director</h4>
+                            <p class="text-sm text-slate-400">
+                                Develop and administer national clinical advanced program regimens. Supervise operational budgets, build data pipelines, and represent the agency to international donors.
+                            </p>
+                        </div>
+                        
+                        <div class="p-6 rounded-2xl bg-brand-darkBg/30 border border-slate-800">
+                            <span class="text-xs font-semibold text-brand-gold block mb-1">University of Zimbabwe (2022 - Present)</span>
+                            <h4 class="font-bold text-white mb-2">Part-Time Lecturer in Epidemiology</h4>
+                            <p class="text-sm text-slate-400">
+                                Instill sound research methodology and clinical trial standards into postgraduate and master level students.
+                            </p>
+                        </div>
+
+                        <div class="p-6 rounded-2xl bg-brand-darkBg/30 border border-slate-800">
+                            <span class="text-xs font-semibold text-brand-gold block mb-1">Various NGO Boards</span>
+                            <h4 class="font-bold text-white mb-2">Strategic Advisory Roles</h4>
+                            <ul class="text-sm text-slate-400 list-disc list-inside space-y-1 mt-2">
+                                <li><strong>Board Chairman:</strong> Zvandiri (Local NGO supporting youth)</li>
+                                <li><strong>Past President:</strong> Zimbabwe College of Public Health Physicians</li>
+                                <li><strong>Past President:</strong> Zimbabwe HIV Clinicians’ Society</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Assignments and Publications -->
+                <div class="space-y-8">
+                    <h3 class="text-xl font-bold text-white flex items-center gap-3">
+                        <svg class="w-6 h-6 text-brand-teal" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                        </svg>
+                        Selected Assignments &amp; Papers
+                    </h3>
+
+                    <div class="space-y-6">
+                        <div class="p-6 rounded-2xl bg-brand-darkBg/30 border border-slate-800">
+                            <h4 class="font-bold text-white mb-2">Co-author of 60+ Scientific Publications</h4>
+                            <p class="text-sm text-slate-400">
+                                Contributing findings to peer-reviewed literature across HIV research networks, Swiss global cohort databases, and domestic health studies.
+                            </p>
+                        </div>
+
+                        <div class="p-6 rounded-2xl bg-brand-darkBg/30 border border-slate-800">
+                            <h4 class="font-bold text-white mb-3">Recent High-Level Consultations</h4>
+                            <ul class="space-y-3 text-sm text-slate-400">
+                                <li class="flex items-start gap-2">
+                                    <svg class="w-4.5 h-4.5 text-brand-teal shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                    <span><strong>Zim Integrated HIV Training (2023):</strong> Served as primary Content Expert.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <svg class="w-4.5 h-4.5 text-brand-teal shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                    <span><strong>UNAIDS Capacity Assessment (2023):</strong> Assessed the Liu Lathu health program, Malawi.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <svg class="w-4.5 h-4.5 text-brand-teal shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                    <span><strong>WHO AFRO COVID-19 Network (2020-2021):</strong> Conducted extensive regional virus burden analysis.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Connect Section -->
+    <section id="contact" class="py-20 bg-brand-darkBg/40 border-t border-slate-800 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                <!-- Connect Context -->
+                <div class="lg:col-span-5 space-y-6">
+                    <span class="text-brand-gold text-xs font-bold tracking-widest uppercase block">Get In Touch</span>
+                    <h2 class="serif-title text-3xl md:text-4xl font-bold text-white">Let's Connect</h2>
+                    <p class="text-slate-300 leading-relaxed">
+                        I am highly interested in sharing practices on clinical database parsing, automated text classification for research trials, and training methodologies. Feel free to contact me via phone or social platforms.
+                    </p>
+                    
+                    <div class="space-y-4 pt-4">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-10 h-10 rounded-xl bg-brand-teal/10 flex items-center justify-center text-brand-teal">
+                                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <span class="text-xs text-slate-400 block">Mobile Reachability</span>
+                                <span class="text-sm font-semibold text-white">+263 772 572 877</span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center space-x-4">
+                            <div class="w-10 h-10 rounded-xl bg-brand-teal/10 flex items-center justify-center text-brand-teal">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.024A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.293 2.747-1.024 2.747-1.024.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.579.688.481C19.137 20.162 22 16.418 22 12c0-5.523-4.477-10-10-10z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <span class="text-xs text-slate-400 block">Class Repositories</span>
+                                <a href="https://github.com/CleophasC" target="_blank" class="text-sm font-semibold text-white hover:text-brand-teal">github.com/CleophasC</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Connect UI Form (Locally active, no email revealed) -->
+                <div class="lg:col-span-7 bg-brand-darkest p-8 rounded-3xl border border-slate-800">
+                    <h3 class="font-bold text-xl text-white mb-6">Send a Quick Message</h3>
+                    
+                    <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-400 uppercase tracking-widest mb-1">Your Name</label>
+                            <input required type="text" id="form-name" class="w-full bg-brand-darkBg border border-slate-800 rounded-xl px-4 py-3 text-slate-200 focus:outline-none focus:border-brand-teal transition-colors" placeholder="Professor Jane Doe" />
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-400 uppercase tracking-widest mb-1">Affiliation / Organisation</label>
+                            <input type="text" id="form-org" class="w-full bg-brand-darkBg border border-slate-800 rounded-xl px-4 py-3 text-slate-200 focus:outline-none focus:border-brand-teal transition-colors" placeholder="Global Health Alliance" />
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-400 uppercase tracking-widest mb-1">Message</label>
+                            <textarea required id="form-message" rows="4" class="w-full bg-brand-darkBg border border-slate-800 rounded-xl px-4 py-3 text-slate-200 focus:outline-none focus:border-brand-teal transition-colors" placeholder="I would like to discuss cohort analysis templates..."></textarea>
+                        </div>
+                        
+                        <div id="form-status" class="hidden p-3 rounded-xl text-center text-sm"></div>
+
+                        <button type="submit" class="w-full py-3 bg-gradient-to-r from-brand-teal to-brand-gold text-brand-darkest font-bold rounded-xl hover:opacity-90 transition-opacity">
+                            Transmit Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-darkest border-t border-slate-900 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div class="text-center sm:text-left">
+                <span class="text-xl font-black bg-gradient-to-r from-brand-teal to-brand-gold bg-clip-text text-transparent">CC</span>
+                <p class="text-xs text-slate-500 mt-2">&copy; 2026 Dr. Cleophas Chimbetete. Built responsibly as part of the GRAPH GenAI Bootcamp.</p>
+            </div>
+            
+            <div class="flex gap-4">
+                <a href="#about-me" class="text-xs text-slate-500 hover:text-brand-teal">Bio</a>
+                <span class="text-slate-800">&bull;</span>
+                <a href="#about-course" class="text-xs text-slate-500 hover:text-brand-teal">Course Info</a>
+                <span class="text-slate-800">&bull;</span>
+                <a href="#submissions" class="text-xs text-slate-500 hover:text-brand-teal">Assignments</a>
             </div>
         </div>
     </footer>
 
-    <!-- INTERACTIVE SCRIPTS -->
+    <!-- Interactive script for filtering and mobile menus -->
     <script>
-        // Responsive Mobile Menu Toggle Logic
-        const menuBtn = document.getElementById('mobile-menu-btn');
+        // Toggle mobile menu navigation
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
-        const menuIcon = document.getElementById('menu-icon');
 
-        menuBtn.addEventListener('click', () => {
-            const isHidden = mobileMenu.classList.contains('hidden');
-            if (isHidden) {
-                mobileMenu.classList.remove('hidden');
-                menuIcon.setAttribute('d', 'M6 18L18 6M6 6l12 12'); // Turn hamburger to X
-            } else {
-                mobileMenu.classList.add('hidden');
-                menuIcon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16'); // Turn back to hamburger
-            }
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
         });
 
-        // Close Mobile Menu upon clicking a layout link
-        document.querySelectorAll('#mobile-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-                menuIcon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+        function toggleMenu() {
+            mobileMenu.classList.add('hidden');
+        }
+
+        // Project Filter logic
+        function filterSubmissions(category) {
+            const cards = document.querySelectorAll('.project-card');
+            
+            // Highlight chosen button
+            const btnAll = document.getElementById('filter-all');
+            const btnCompleted = document.getElementById('filter-completed');
+            const btnUpcoming = document.getElementById('filter-upcoming');
+
+            [btnAll, btnCompleted, btnUpcoming].forEach(btn => {
+                btn.className = "px-4 py-2 text-xs font-semibold rounded-full bg-brand-darkBg border border-slate-800 text-slate-300 hover:text-white transition-all";
             });
-        });
 
-        // Secure Form Submission Handling (with validation notification instead of alerts)
+            const activeBtn = document.getElementById('filter-' + category);
+            activeBtn.className = "px-4 py-2 text-xs font-semibold rounded-full bg-brand-teal text-brand-darkest transition-all";
+
+            cards.forEach(card => {
+                if (category === 'all') {
+                    card.style.display = 'flex';
+                } else if (category === 'completed') {
+                    if (card.classList.contains('completed')) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                } else if (category === 'upcoming') {
+                    if (card.classList.contains('upcoming')) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                }
+            });
+        }
+
+        // Contact Form local success simulations without external scripts
         function handleFormSubmit(event) {
             event.preventDefault();
+            const statusDiv = document.getElementById('form-status');
+            const name = document.getElementById('form-name').value;
             
-            const name = document.getElementById('name').value;
-            const statusBox = document.getElementById('form-status');
+            statusDiv.classList.remove('hidden', 'bg-red-500/20', 'text-red-400', 'bg-brand-teal/20', 'text-brand-teal');
+            statusDiv.classList.add('block', 'bg-brand-teal/20', 'text-brand-teal');
+            statusDiv.innerHTML = `Thank you, ${name}. Your message has been generated and cached locally! Since my direct email is protected against automated indexers, your transmittal is successfully logged.`;
             
-            // Setup visual success feedback inside the HTML structure
-            statusBox.className = "p-4 rounded-xl text-xs font-bold text-center bg-emerald-500/15 text-emerald-400 border border-emerald-500/20";
-            statusBox.innerHTML = `Thank you, ${name}! Your inquiry has been processed successfully. Dr. Chimbetete will be in touch shortly.`;
-            statusBox.classList.remove('hidden');
-            
-            // Reset form fields
-            event.target.reset();
-            
-            // Automatically clear status message after 7 seconds
-            setTimeout(() => {
-                statusBox.classList.add('hidden');
-            }, 7000);
+            // clear form
+            document.getElementById('contact-form').reset();
+        }
+
+        // Fallback profile generator if the GitHub image is unreachable or private
+        function handleImageError(image) {
+            image.onerror = null;
+            // Create a styled placeholder with initials "CC" inside an SVG dynamically
+            image.src = `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><rect width="100%" height="100%" fill="%231e293b"/><text x="50%" y="55%" font-size="64" font-family="Playfair Display, serif" font-weight="bold" fill="%2314b8a6" dom-dominant-baseline="middle" text-anchor="middle">CC</text></svg>`;
         }
     </script>
 </body>
